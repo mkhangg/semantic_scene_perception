@@ -1,0 +1,36 @@
+data:
+    name: 'coco'
+    resize: [240,320]
+    src_image_path: './data/coco/test2014/'
+    dst_label_path: './data/mg_syn_coco_15e-3/labels/test2014/'
+    dst_image_path: './data/mg_syn_coco_15e-3/images/test2014/'
+    homography_adaptation:
+        num: 100
+        aggregation: 'sum'
+        filter_counts: 0
+        valid_border_margin: 3
+        homographies:
+            translation: true
+            rotation: true
+            scaling: true
+            perspective: true
+            scaling_amplitude: 0.2
+            perspective_amplitude_x: 0.2
+            perspective_amplitude_y: 0.2
+            allow_artifacts: true
+            patch_ratio: 0.85
+            max_angle: 1.57
+model:
+    name: 'magicpoint'
+    using_bn: true
+    grid_size: 8
+    det_thresh: 0.015 #0.015
+    nms: 4
+    topk: 0
+    pretrained_model: './export/mg_coco/mg_coco_19_0.462.pth'
+    backbone:
+        backbone_type: 'VGG'
+        vgg:
+            channels: [64,64,64,64,128,128,128,128]
+    det_head: #detector head
+        feat_in_dim: 128

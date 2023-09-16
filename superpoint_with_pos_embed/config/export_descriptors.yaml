@@ -1,0 +1,40 @@
+data:
+    name: 'hpatches'
+    data_dir: './data/hpatches'
+    export_dir: './data/descriptors/hpatches/pesp/'
+    alteration: 'v'  # 'all' 'i' 'v'
+    preprocessing:
+        resize: [480, 640]  # False for coco
+    homography_adaptation:
+        num: 0
+        aggregation: 'sum'
+        filter_counts: 10
+        homographies:
+            translation: true
+            rotation: true
+            scaling: true
+            perspective: true
+            scaling_amplitude: 0.1
+            perspective_amplitude_x: 0.2
+            perspective_amplitude_y: 0.2
+            patch_ratio: 0.85
+            max_angle: 1.57
+            allow_artifacts: false
+model:
+    name: 'superpoint'
+    using_bn: true
+    grid_size: 8
+    pretrained_model: './export/superpoint/vgg_backbone/superpoint_bn.pth'
+    nms: 8
+    det_thresh: 0.001 #0.001
+    topk: 1000
+    learning_rate: 0.001
+    backbone:
+        backbone_type: 'VGG'
+        vgg:
+            channels: [64,64,64,64,128,128,128,128]
+    det_head: #detector head
+        feat_in_dim: 128
+    des_head: #descriptor head
+        feat_in_dim: 128
+        feat_out_dim: 256
