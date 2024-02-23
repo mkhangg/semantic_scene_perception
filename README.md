@@ -1,6 +1,6 @@
 <!-- PAPER TITLE -->
 
-# [ICRA '24] Real-Time 3D Semantic Scene Perception for Egocentric Robots with Binocular Vision
+# Real-Time 3D Semantic Scene Perception for Egocentric Robots with Binocular Vision
 
 <!-- TABLE OF CONTENTS -->
 
@@ -113,5 +113,10 @@ Experiment setup with *(top)* the Baxter **(a)** observing the scene at its firs
 ## Citing
 
 ```
-
+@article{nguyen2024real,
+  title={Real-time 3D Semantic Scene Perception for Egocentric Robots with Binocular Vision},
+  author={Nguyen, Khang and Dang, Tuan and Huber, Manfred},
+  journal={arXiv preprint arXiv:2402.11872},
+  year={2024}
+}
 ```
